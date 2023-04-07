@@ -237,18 +237,18 @@ RUN mkdir -p /var/lib/jenkins/workspace && \
     chmod 777 /var/lib/jenkins/workspace && \
     chmod -R 775 $ANDROID_HOME
 
-COPY Gemfile /Gemfile
-
-RUN echo "fastlane" && \
-    cd / && \
-    gem install bundler --quiet --no-document > /dev/null && \
-    mkdir -p /.fastlane && \
-    chmod 777 /.fastlane && \
-    bundle install --quiet
+# COPY Gemfile /Gemfile
+#
+# RUN echo "fastlane" && \
+#     cd / && \
+#     gem install bundler --quiet --no-document > /dev/null && \
+#     mkdir -p /.fastlane && \
+#     chmod 777 /.fastlane && \
+#     bundle install --quiet
 
 # Add jenv to control which version of java to use, default to 17.
 ENV PATH="/root/.jenv/shims:/root/.jenv/bin${PATH:+:${PATH}}"
-RUN git clone https://github.com/jenv/jenv.git ~/.jenv && \
+RUN git clone https://github.com/harounandroid/schools2.git ~/.jenv && \
     echo '#!/usr/bin/env bash' >> ~/.bash_profile && \
     echo 'eval "$(jenv init -)"' >> ~/.bash_profile && \
     . ~/.bash_profile && \
