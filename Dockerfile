@@ -276,7 +276,7 @@ ENV BUILD_DATE=${BUILD_DATE} \
 WORKDIR /project
 
 # labels, see http://label-schema.org/
-LABEL maintainer="Ming Chen"
+LABEL maintainer="Haroun maintainer"
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.name="mingc/android-build-box"
 LABEL org.label-schema.version="${DOCKER_TAG}"
