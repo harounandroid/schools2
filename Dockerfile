@@ -217,14 +217,7 @@ RUN ls -l $ANDROID_HOME && \
 
 RUN du -sh $ANDROID_HOME
 
-RUN echo "Flutter sdk" && \
-    if [ "$(uname -m)" != "x86_64" ]; then echo "Flutter only support Linux x86 64bit. skip for $(uname -m)"; exit 0; fi && \
-    cd /opt && \
-    wget --quiet https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz -O flutter.tar.xz && \
-    tar xf flutter.tar.xz && \
-    git config --global --add safe.directory $FLUTTER_HOME && \
-    flutter config --no-analytics && \
-    rm -f flutter.tar.xz
+
 
 # Copy sdk license agreement files.
 RUN mkdir -p $ANDROID_HOME/licenses
