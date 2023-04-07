@@ -1,4 +1,4 @@
-FROM gradle:6.1.1-jdk11
+FROM gradle:7.5-jdk11
 
 RUN mkdir /opt/project
 COPY .  /opt/project
@@ -14,6 +14,6 @@ RUN mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools && \
 
 ENV PATH ${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/emulator
 RUN yes | sdkmanager --licenses && \
-		sdkmanager "platforms;android-30" "platforms;android-31" "platforms;android-313"  "build-tools;29.0.2" && \
+		sdkmanager   "platforms;android-31"  "build-tools;33.0.1" && \
 		cd /opt/project
 RUN gradle build
